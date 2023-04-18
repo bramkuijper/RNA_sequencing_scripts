@@ -1,6 +1,6 @@
 # Page 16 from Dündar
 
-The key script here is `workflow.sh`, explore that first. It calls the other scripts. Run it as follows:
+The key script here is the bash script `workflow.sh`, one might want to explore that first. It calls the other scripts. Run it as follows:
 ```
 bash workflow.sh
 ```
