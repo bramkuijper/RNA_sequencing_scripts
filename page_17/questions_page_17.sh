@@ -28,6 +28,11 @@ printf "\n\nQUESTION 2:\n"
 # 2. extract quality scores from the first 10 lines. This is actually a real pain using grep, because grep can be made to match multiple lines (by changing line endings to null), but then it will be really difficult to match a given number of lines. Argh. so let's make a small python script which I call here
 python3 quality_scores_n_lines.py $fast_q_file 10
 
+
+printf "\n\nQUESTION 2 alternative:\n"
+#2. awh... got it, with sed's line skipping you could easily achieve this
+zcat $fast_q_file | head -n40 | sed -n '4~4p'
+
 # 3. concatenate the two fastq files of a PE (paired-end) run
 # to see how this works might be good to download an example paired end run
 # let's use accession number SRX4669750 which I found by typing the keyword 'blood' in
@@ -42,5 +47,4 @@ if [[ ! -e SRR453566_combined.fastq.gz ]]
 then
     zcat SRR453566_{1,2}.fastq.gz | gzip > SRR453566_combined.fastq.gz
 fi
-
 
